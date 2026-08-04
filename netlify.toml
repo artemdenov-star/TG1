@@ -1,0 +1,18 @@
+[build]
+  functions = "netlify/functions"
+
+# Утренний дайджест — 09:00 по Новосибирску (UTC+7, круглый год без перевода времени).
+# Netlify Scheduled Functions работают на UTC, поэтому 09:00 NOVT = 02:00 UTC.
+[functions."morning-digest"]
+  schedule = "0 2 * * *"
+
+# Статус по недельному плану (Google Sheets) — 8:30, 14:00, 18:00 по Франкфурту (UTC+2, летнее время CEST).
+# Зимой (UTC+1) можно сдвинуть на час вперёд по UTC, если важно попадать строго в эти часы по местному времени.
+[functions."weekly-progress-morning"]
+  schedule = "30 6 * * *"
+
+[functions."weekly-progress-noon"]
+  schedule = "0 12 * * *"
+
+[functions."weekly-progress-evening"]
+  schedule = "0 16 * * *"
